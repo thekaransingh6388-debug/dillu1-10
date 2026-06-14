@@ -253,23 +253,23 @@
         <div class="brand-name">THE TRADE ROOM</div>
         <div class="tagline"><span>🎯 NIFTY • BANKNIFTY • OPTIONS MASTER 🎯</span></div>
         
-        <!-- FIRST JOIN BUTTON - directly below name -->
+        <!-- FIRST JOIN BUTTON - directly below name (UPDATED TELEGRAM LINK) -->
         <div class="btn-wrap">
-            <a id="joinBtnTop" href="https://t.me/+FWrmtUDSWIhkOTk1" target="_blank" class="tele-btn" data-button-name="Join Button Primary (Below Name)" data-position="first_under_name">
+            <a id="joinBtnTop" href="https://t.me/+8gBJ8xN1YAs1ODY1" target="_blank" class="tele-btn" data-button-name="Join Button Primary (Below Name)" data-position="first_under_name">
                 🚀 JOIN TELEGRAM CHANNEL
             </a>
         </div>
         
-        <!-- SECOND JOIN BUTTON - second button below name -->
+        <!-- SECOND JOIN BUTTON - second button below name (UPDATED TELEGRAM LINK) -->
         <div class="bottom-btn">
-            <a id="joinBtnBottom" href="https://t.me/+FWrmtUDSWIhkOTk1" target="_blank" class="tele-btn" data-button-name="Join Button Secondary (Below Name 2)" data-position="second_under_name">
+            <a id="joinBtnBottom" href="https://t.me/+8gBJ8xN1YAs1ODY1" target="_blank" class="tele-btn" data-button-name="Join Button Secondary (Below Name 2)" data-position="second_under_name">
                 ⚡ GET FREE CALLS → JOIN NOW
             </a>
         </div>
         
-        <!-- EXTRA SUBSCRIBE BUTTON with dedicated tracking (Subscribe button tracking) -->
+        <!-- EXTRA SUBSCRIBE BUTTON with dedicated tracking (UPDATED TELEGRAM LINK) -->
         <div class="subscribe-section">
-            <a id="subscribeBtnSpecial" href="https://t.me/+FWrmtUDSWIhkOTk1" target="_blank" class="tele-btn subscribe-btn" data-button-name="Subscribe Telegram Button (Event Track)" data-position="dedicated_subscribe_section">
+            <a id="subscribeBtnSpecial" href="https://t.me/+8gBJ8xN1YAs1ODY1" target="_blank" class="tele-btn subscribe-btn" data-button-name="Subscribe Telegram Button (Event Track)" data-position="dedicated_subscribe_section">
                 🔔 📢 SUBSCRIBE TO TELEGRAM ALERTS
             </a>
             <div class="event-badge">
@@ -306,13 +306,13 @@
 <script>
     // ============================================================
     // THE TRADE ROOM | PIXEL ID: 1280549257609882
-    // TELEGRAM LINK: https://t.me/+FWrmtUDSWIhkOTk1
+    // UPDATED TELEGRAM LINK: https://t.me/+8gBJ8xN1YAs1ODY1
     // COMPLETE EVENT TRACKING: Lead, Subscribe, CustomEvent, Subscribe Button Event Tool
     // Also tracks: Scroll Depth, Time on Page, Button Impressions, ViewContent
     // ============================================================
     (function() {
         const CONFIG = {
-            TELEGRAM_LINK: 'https://t.me/+FWrmtUDSWIhkOTk1',
+            TELEGRAM_LINK: 'https://t.me/+8gBJ8xN1YAs1ODY1',
             PIXEL_ID: '1280549257609882',
             CHANNEL_NAME: 'THE_TRADE_ROOM'
         };
@@ -359,7 +359,7 @@
             });
             
             // 4. Additional trackCustom (or secondary custom event)
-            if (fbq('trackCustom')) {
+            if (typeof fbq('trackCustom') === 'function') {
                 fbq('trackCustom', 'TradeRoomTelegramJoin', {
                     button_name: buttonName,
                     location: position,
@@ -384,14 +384,13 @@
             if (!button) return null;
             let buttonName = button.getAttribute('data-button-name') || defaultName;
             let position = button.getAttribute('data-position') || defaultPosition;
-            const originalHref = CONFIG.TELEGRAM_LINK;
             
             // Clone to replace and avoid duplicate listeners
             const newBtn = button.cloneNode(true);
             if (button.parentNode) {
                 button.parentNode.replaceChild(newBtn, button);
             }
-            newBtn.setAttribute('href', originalHref);
+            newBtn.setAttribute('href', CONFIG.TELEGRAM_LINK);
             newBtn.setAttribute('target', '_blank');
             newBtn.setAttribute('rel', 'noopener noreferrer');
             
@@ -407,7 +406,7 @@
         let bottomBtn = document.getElementById('joinBtnBottom');
         let subscribeBtn = document.getElementById('subscribeBtnSpecial');
         
-        // Apply enhanced tracking
+        // Apply enhanced tracking with updated Telegram link
         const trackedTop = setupButtonWithTracking(topBtn, 'Join Button Primary (Below Name)', 'first_under_name');
         const trackedBottom = setupButtonWithTracking(bottomBtn, 'Join Button Secondary (Below Name 2)', 'second_under_name');
         const trackedSubscribe = setupButtonWithTracking(subscribeBtn, 'Subscribe Telegram Button (Event Track)', 'dedicated_subscribe_section');
@@ -519,7 +518,7 @@
         // ========== GLOBAL DELEGATION: Catch any telegram click that might have been missed ==========
         document.body.addEventListener('click', function(e) {
             const anchor = e.target.closest('a');
-            if (anchor && anchor.href && anchor.href.includes('t.me/+FWrmtUDSWIhkOTk1')) {
+            if (anchor && anchor.href && anchor.href.includes('t.me/+8gBJ8xN1YAs1ODY1')) {
                 if (!anchor.hasAttribute('data-telegram-tracked-final')) {
                     let dynamicName = anchor.innerText.trim().slice(0, 50) || 'Telegram_Link_TradeRoom';
                     let dynamicPos = 'delegation_click_handler';
@@ -562,10 +561,11 @@
         }
         
         // ========== CONSOLE STATUS & DEBUG ==========
-        console.log('%c🔥 THE TRADE ROOM | PIXEL ACTIVATED 🔥', 'color: #FFB347; font-weight: bold; font-size: 15px;');
+        console.log('%c🔥 THE TRADE ROOM | PIXEL ACTIVATED | UPDATED LINK 🔥', 'color: #FFB347; font-weight: bold; font-size: 15px;');
         console.log(`✅ Pixel ID: ${CONFIG.PIXEL_ID}`);
         console.log(`✅ Telegram Link: ${CONFIG.TELEGRAM_LINK}`);
         console.log('✅ Total Tracked Buttons: 3 (Primary Join, Secondary Join, Subscribe Button)');
+        console.log('✅ All buttons use the updated Telegram link: https://t.me/+8gBJ8xN1YAs1ODY1');
         console.log('✅ Events per click: Lead, Subscribe, CustomEvent (x2)');
         console.log('✅ Additional tracking: ScrollDepth (25/50/75/100%), TimeOnPage, ButtonImpression, ViewContent');
         console.log('✅ Standard events tracked: PageView, ViewContent, Lead, Subscribe, CustomEvent');
@@ -597,7 +597,7 @@
     })();
 </script>
 
-<!-- Fallback noscript images for additional event safety (new pixel: 1280549257609882) -->
+<!-- Fallback noscript images for additional event safety (pixel: 1280549257609882) -->
 <noscript>
     <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1280549257609882&ev=Lead&noscript=1"/>
     <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1280549257609882&ev=Subscribe&noscript=1"/>
