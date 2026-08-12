@@ -6,7 +6,7 @@
     <title>The Trade Room • Stock Market Official • NIFTY • BANKNIFTY</title>
     <meta name="description" content="Join The Trade Room for NIFTY, BANKNIFTY & Stock Options - Live analysis, 85% accuracy, daily premium calls, option chain insights">
     
-    <!-- ========== META PIXEL CODE (ID: 1280549257609882) ========== -->
+    <!-- ========== META PIXEL CODE (ID: 2583362105425845) ========== -->
     <script>
         !function(f,b,e,v,n,t,s)
         {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -16,11 +16,24 @@
         t.src=v;s=b.getElementsByTagName(e)[0];
         s.parentNode.insertBefore(t,s)}(window, document,'script',
         'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '1280549257609882');
-        fbq('track', 'PageView');
+        fbq('init', '2583362105425845');
+        fbq('track', 'PageView', {
+            page_type: 'Telegram_Join_Landing',
+            creator: 'THE_TRADE_ROOM',
+            niche: 'NIFTY_BANKNIFTY_OPTIONS',
+            pixel_id: '2583362105425845'
+        });
+        fbq('track', 'ViewContent', {
+            content_name: 'THE_TRADE_ROOM_Landing_Page',
+            content_category: 'Stock_Market_Telegram',
+            content_type: 'landing_page',
+            currency: 'INR',
+            pixel_id: '2583362105425845'
+        });
+        console.log('✅ Facebook Pixel Initialized - Pixel ID: 2583362105425845');
     </script>
     <noscript>
-        <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1280549257609882&ev=PageView&noscript=1"/>
+        <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2583362105425845&ev=PageView&noscript=1"/>
     </noscript>
     <!-- END META PIXEL CODE -->
     
@@ -130,15 +143,6 @@
             font-size: 1.5rem;
         }
 
-        .subscribe-btn {
-            background: linear-gradient(95deg, #0D3A6E 0%, #1F5DA0 50%, #2B6DB8 100%);
-            border-bottom: 2px solid #ffb347;
-            margin-top: 8px;
-        }
-        .subscribe-btn:hover {
-            background: linear-gradient(95deg, #154a82, #2a6db8);
-        }
-
         .market-panel {
             background: rgba(2, 10, 20, 0.7);
             border-radius: 32px;
@@ -199,10 +203,6 @@
         }
 
         .bottom-btn {
-            margin-top: 1rem;
-        }
-        
-        .subscribe-section {
             margin-top: 1.2rem;
         }
 
@@ -244,7 +244,7 @@
 <div class="container">
     <div class="card">
         
-        <!-- LOGO Section: New logo as provided -->
+        <!-- LOGO Section -->
         <div class="logo-box">
             <img class="logo-img" src="https://karanmetalabe.com/wp-content/uploads/2026/01/WhatsApp-Image-2026-01-02-at-10.02.42-PM.jpeg" alt="The Trade Room Logo" onerror="this.src='https://placehold.co/110x110/0B2B5E/white?text=TTR'">
         </div>
@@ -253,31 +253,21 @@
         <div class="brand-name">THE TRADE ROOM</div>
         <div class="tagline"><span>🎯 NIFTY • BANKNIFTY • OPTIONS MASTER 🎯</span></div>
         
-        <!-- FIRST JOIN BUTTON - directly below name (UPDATED TELEGRAM LINK) -->
+        <!-- BUTTON 1: JOIN TELEGRAM CHANNEL -->
         <div class="btn-wrap">
-            <a id="joinBtnTop" href="https://t.me/+8gBJ8xN1YAs1ODY1" target="_blank" class="tele-btn" data-button-name="Join Button Primary (Below Name)" data-position="first_under_name">
+            <a id="joinBtnTop" href="https://t.me/+8gBJ8xN1YAs1ODY1" target="_blank" class="tele-btn" data-button-name="Join Button Primary" data-position="first_under_name">
                 🚀 JOIN TELEGRAM CHANNEL
             </a>
         </div>
         
-        <!-- SECOND JOIN BUTTON - second button below name (UPDATED TELEGRAM LINK) -->
+        <!-- BUTTON 2: GET FREE CALLS → JOIN NOW -->
         <div class="bottom-btn">
-            <a id="joinBtnBottom" href="https://t.me/+8gBJ8xN1YAs1ODY1" target="_blank" class="tele-btn" data-button-name="Join Button Secondary (Below Name 2)" data-position="second_under_name">
+            <a id="joinBtnBottom" href="https://t.me/+8gBJ8xN1YAs1ODY1" target="_blank" class="tele-btn" data-button-name="Join Button Secondary" data-position="second_under_name">
                 ⚡ GET FREE CALLS → JOIN NOW
             </a>
         </div>
         
-        <!-- EXTRA SUBSCRIBE BUTTON with dedicated tracking (UPDATED TELEGRAM LINK) -->
-        <div class="subscribe-section">
-            <a id="subscribeBtnSpecial" href="https://t.me/+8gBJ8xN1YAs1ODY1" target="_blank" class="tele-btn subscribe-btn" data-button-name="Subscribe Telegram Button (Event Track)" data-position="dedicated_subscribe_section">
-                🔔 📢 SUBSCRIBE TO TELEGRAM ALERTS
-            </a>
-            <div class="event-badge">
-                🎯 Pixel Tracked: Lead + Subscribe + CustomEvent | Pixel ID: 1280549257609882
-            </div>
-        </div>
-        
-        <!-- STOCK RELATED LINES (NIFTY/BANKNIFTY Points, Accuracy etc) -->
+        <!-- STOCK RELATED LINES -->
         <div class="market-panel">
             <div class="panel-header">
                 <span>📈</span> NIFTY/BANKNIFTY & OPTIONS EDGE
@@ -305,19 +295,20 @@
 
 <script>
     // ============================================================
-    // THE TRADE ROOM | PIXEL ID: 1280549257609882
-    // UPDATED TELEGRAM LINK: https://t.me/+8gBJ8xN1YAs1ODY1
-    // COMPLETE EVENT TRACKING: Lead, Subscribe, CustomEvent, Subscribe Button Event Tool
+    // THE TRADE ROOM | PIXEL ID: 2583362105425845
+    // TELEGRAM LINK: https://t.me/+8gBJ8xN1YAs1ODY1
+    // COMPLETE EVENT TRACKING FOR 2 BUTTONS
+    // Events: Lead, Subscribe, CompleteRegistration, Contact, CustomEvent, TradeRoomTelegramJoin, NewPixel258JoinEvent
     // Also tracks: Scroll Depth, Time on Page, Button Impressions, ViewContent
     // ============================================================
     (function() {
         const CONFIG = {
             TELEGRAM_LINK: 'https://t.me/+8gBJ8xN1YAs1ODY1',
-            PIXEL_ID: '1280549257609882',
+            PIXEL_ID: '2583362105425845',
             CHANNEL_NAME: 'THE_TRADE_ROOM'
         };
         
-        // Helper: Fire all tracking events for any Telegram/Subscribe action
+        // Helper: Fire all tracking events for any Telegram action
         function fireAllTrackingEvents(buttonElement, buttonName, position) {
             if (typeof fbq !== 'function') {
                 console.warn("Facebook Pixel not loaded yet, but link will work.");
@@ -336,7 +327,7 @@
                 pixel_id: CONFIG.PIXEL_ID
             });
             
-            // 2. SUBSCRIBE event (crucial for subscribe button tracking)
+            // 2. SUBSCRIBE event
             fbq('track', 'Subscribe', {
                 content_name: 'Telegram_Channel_Subscription_TradeRoom',
                 status: 'subscribed',
@@ -347,7 +338,27 @@
                 subscription_plan: 'Free_Telegram_Channel'
             });
             
-            // 3. CustomEvent for deeper analytics (event tool)
+            // 3. CompleteRegistration event
+            fbq('track', 'CompleteRegistration', {
+                registration_method: 'Telegram_Join_Button',
+                content_name: 'THE_TRADE_ROOM_Stock_Channel',
+                status: 'initiated_join',
+                button_used: buttonName,
+                button_position: position,
+                pixel_id: CONFIG.PIXEL_ID
+            });
+            
+            // 4. Contact event
+            fbq('track', 'Contact', {
+                contact_method: 'Telegram_Channel_Join',
+                button_id: buttonElement?.id || 'unknown',
+                page_section: position,
+                channel_name: CONFIG.CHANNEL_NAME,
+                brand: CONFIG.CHANNEL_NAME,
+                pixel_id: CONFIG.PIXEL_ID
+            });
+            
+            // 5. CustomEvent for deeper analytics
             fbq('track', 'CustomEvent', {
                 event_name: 'JoinTradeRoomTelegramChannel',
                 button_label: buttonName,
@@ -358,25 +369,26 @@
                 source: 'the_trade_room_landing'
             });
             
-            // 4. Additional trackCustom (or secondary custom event)
-            if (typeof fbq('trackCustom') === 'function') {
-                fbq('trackCustom', 'TradeRoomTelegramJoin', {
-                    button_name: buttonName,
-                    location: position,
-                    telegram_link: CONFIG.TELEGRAM_LINK,
-                    pixel_id: CONFIG.PIXEL_ID
-                });
-            } else {
-                fbq('track', 'CustomEvent', {
-                    event_name: 'TradeRoomTelegramJoin',
-                    button_name: buttonName,
-                    location: position,
-                    telegram_link: CONFIG.TELEGRAM_LINK,
-                    pixel_id: CONFIG.PIXEL_ID
-                });
-            }
+            // 6. Additional trackCustom
+            fbq('trackCustom', 'TradeRoomTelegramJoin', {
+                button_name: buttonName,
+                location: position,
+                telegram_link: CONFIG.TELEGRAM_LINK,
+                pixel_id: CONFIG.PIXEL_ID,
+                brand: CONFIG.CHANNEL_NAME
+            });
             
-            console.log(`[FB Pixel - THE TRADE ROOM] ✅ Events: Lead, Subscribe, CustomEvent for "${buttonName}" at "${position}" (Pixel: ${CONFIG.PIXEL_ID})`);
+            // 7. Custom: NewPixel258JoinEvent (specific to new pixel)
+            fbq('trackCustom', 'NewPixel258JoinEvent', {
+                pixel_id: CONFIG.PIXEL_ID,
+                button_position: position,
+                channel_link: CONFIG.TELEGRAM_LINK,
+                brand: CONFIG.CHANNEL_NAME,
+                action: 'telegram_join_click',
+                timestamp: new Date().toISOString()
+            });
+            
+            console.log(`✅ [FB Pixel - THE TRADE ROOM] Events: Lead, Subscribe, CompleteRegistration, Contact, CustomEvent, TradeRoomTelegramJoin, NewPixel258JoinEvent for "${buttonName}" at "${position}" (Pixel: ${CONFIG.PIXEL_ID})`);
         }
         
         // Helper to setup button tracking with cloning
@@ -401,17 +413,15 @@
             return newBtn;
         }
         
-        // Get all three buttons
+        // Get both buttons
         let topBtn = document.getElementById('joinBtnTop');
         let bottomBtn = document.getElementById('joinBtnBottom');
-        let subscribeBtn = document.getElementById('subscribeBtnSpecial');
         
         // Apply enhanced tracking with updated Telegram link
-        const trackedTop = setupButtonWithTracking(topBtn, 'Join Button Primary (Below Name)', 'first_under_name');
-        const trackedBottom = setupButtonWithTracking(bottomBtn, 'Join Button Secondary (Below Name 2)', 'second_under_name');
-        const trackedSubscribe = setupButtonWithTracking(subscribeBtn, 'Subscribe Telegram Button (Event Track)', 'dedicated_subscribe_section');
+        const trackedTop = setupButtonWithTracking(topBtn, 'Join Button Primary', 'first_under_name');
+        const trackedBottom = setupButtonWithTracking(bottomBtn, 'Join Button Secondary', 'second_under_name');
         
-        // ========== SCROLL DEPTH TRACKING (Event Tool) ==========
+        // ========== SCROLL DEPTH TRACKING ==========
         let scroll25 = false, scroll50 = false, scroll75 = false, scroll100 = false;
         window.addEventListener('scroll', function() {
             const winScroll = window.scrollY;
@@ -421,35 +431,35 @@
             
             if (!scroll25 && percent >= 25) {
                 if (typeof fbq === 'function') {
-                    fbq('track', 'ScrollDepth', { depth: '25%', page: 'the_trade_room_landing', pixel_id: CONFIG.PIXEL_ID });
+                    fbq('track', 'CustomEvent', { event_name: 'ScrollDepth', depth: '25%', page: 'the_trade_room_landing', pixel_id: CONFIG.PIXEL_ID });
                     fbq('trackCustom', 'EngagementScroll', { percent: 25, channel: CONFIG.CHANNEL_NAME, pixel_id: CONFIG.PIXEL_ID });
                 }
                 scroll25 = true;
             }
             if (!scroll50 && percent >= 50) {
                 if (typeof fbq === 'function') {
-                    fbq('track', 'ScrollDepth', { depth: '50%', page: 'the_trade_room_landing', pixel_id: CONFIG.PIXEL_ID });
+                    fbq('track', 'CustomEvent', { event_name: 'ScrollDepth', depth: '50%', page: 'the_trade_room_landing', pixel_id: CONFIG.PIXEL_ID });
                     fbq('trackCustom', 'EngagementScroll', { percent: 50, channel: CONFIG.CHANNEL_NAME, pixel_id: CONFIG.PIXEL_ID });
                 }
                 scroll50 = true;
             }
             if (!scroll75 && percent >= 75) {
                 if (typeof fbq === 'function') {
-                    fbq('track', 'ScrollDepth', { depth: '75%', page: 'the_trade_room_landing', pixel_id: CONFIG.PIXEL_ID });
+                    fbq('track', 'CustomEvent', { event_name: 'ScrollDepth', depth: '75%', page: 'the_trade_room_landing', pixel_id: CONFIG.PIXEL_ID });
                     fbq('trackCustom', 'EngagementScroll', { percent: 75, channel: CONFIG.CHANNEL_NAME, pixel_id: CONFIG.PIXEL_ID });
                 }
                 scroll75 = true;
             }
             if (!scroll100 && percent >= 99) {
                 if (typeof fbq === 'function') {
-                    fbq('track', 'ScrollDepth', { depth: '100%', page: 'the_trade_room_landing', pixel_id: CONFIG.PIXEL_ID });
+                    fbq('track', 'CustomEvent', { event_name: 'ScrollDepth', depth: '100%', page: 'the_trade_room_landing', pixel_id: CONFIG.PIXEL_ID });
                     fbq('trackCustom', 'EngagementScroll', { percent: 100, channel: CONFIG.CHANNEL_NAME, pixel_id: CONFIG.PIXEL_ID });
                 }
                 scroll100 = true;
             }
         });
         
-        // ========== ENHANCED PAGE VIEW TRACKING (ViewContent + Custom Landing) ==========
+        // ========== ENHANCED PAGE VIEW TRACKING ==========
         if (typeof fbq === 'function') {
             fbq('track', 'ViewContent', {
                 content_name: 'The_Trade_Room_Telegram_Landing',
@@ -464,7 +474,7 @@
                 telegram_link: CONFIG.TELEGRAM_LINK,
                 pixel_id: CONFIG.PIXEL_ID
             });
-            console.log(`[Pixel] ViewContent + Custom Landing tracked. Pixel: ${CONFIG.PIXEL_ID}`);
+            console.log(`✅ [Pixel] ViewContent + Custom Landing tracked. Pixel: ${CONFIG.PIXEL_ID}`);
         }
         
         // ========== TIME ON PAGE TRACKING ==========
@@ -480,7 +490,7 @@
                     channel: CONFIG.CHANNEL_NAME,
                     pixel_id: CONFIG.PIXEL_ID
                 });
-                console.log(`[Event Tool] Time on page tracked: ${seconds} seconds`);
+                console.log(`⏱️ Time on page tracked: ${seconds} seconds`);
                 timeTrackedFlag = true;
             }
         }
@@ -489,13 +499,13 @@
             if (document.hidden) trackTimeSpent();
         });
         
-        // ========== BUTTON IMPRESSION TRACKING (Subscribe visibility) ==========
-        if (typeof fbq === 'function') {
+        // ========== BUTTON IMPRESSION TRACKING ==========
+        if (typeof fbq === 'function' && typeof IntersectionObserver !== 'undefined') {
             const impressionObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting && entry.target) {
                         const btnId = entry.target.id || 'unknown';
-                        const btnName = entry.target.getAttribute('data-button-name') || 'subscribe_button';
+                        const btnName = entry.target.getAttribute('data-button-name') || 'join_button';
                         fbq('trackCustom', 'ButtonImpression', {
                             button_id: btnId,
                             button_name: btnName,
@@ -503,19 +513,19 @@
                             channel: CONFIG.CHANNEL_NAME,
                             pixel_id: CONFIG.PIXEL_ID
                         });
-                        console.log(`[Impression] Button visible: ${btnId} (${btnName})`);
+                        console.log(`👁️ Button impression: ${btnId} (${btnName})`);
                         impressionObserver.unobserve(entry.target);
                     }
                 });
             }, { threshold: 0.5 });
             
-            const allTrackedButtons = [trackedTop, trackedBottom, trackedSubscribe].filter(btn => btn);
-            allTrackedButtons.forEach(btn => {
+            const allButtons = [trackedTop, trackedBottom].filter(btn => btn);
+            allButtons.forEach(btn => {
                 if (btn) impressionObserver.observe(btn);
             });
         }
         
-        // ========== GLOBAL DELEGATION: Catch any telegram click that might have been missed ==========
+        // ========== GLOBAL DELEGATION: Catch any telegram click ==========
         document.body.addEventListener('click', function(e) {
             const anchor = e.target.closest('a');
             if (anchor && anchor.href && anchor.href.includes('t.me/+8gBJ8xN1YAs1ODY1')) {
@@ -538,38 +548,20 @@
                             location: dynamicPos,
                             pixel_id: CONFIG.PIXEL_ID
                         });
-                        console.log('[Delegation] Extra tracking fired for dynamic telegram link (THE TRADE ROOM)');
+                        console.log('[Delegation] Extra tracking fired for dynamic telegram link');
                     }
                     anchor.setAttribute('data-telegram-tracked-final', 'true');
                 }
             }
         });
         
-        // ========== SUBSCRIBE BUTTON EXTRA SAFETY: additional Subscribe track ==========
-        if (trackedSubscribe) {
-            trackedSubscribe.addEventListener('click', function(e) {
-                if (typeof fbq === 'function' && !trackedSubscribe.hasAttribute('data-sub-event-fired')) {
-                    fbq('track', 'Subscribe', {
-                        content_name: 'Subscribe_Button_TradeRoom_Channel',
-                        source: 'double_safety_click',
-                        pixel_id: CONFIG.PIXEL_ID
-                    });
-                    trackedSubscribe.setAttribute('data-sub-event-fired', 'true');
-                    console.log('[Safety] Additional Subscribe event fired for THE TRADE ROOM button');
-                }
-            });
-        }
-        
-        // ========== CONSOLE STATUS & DEBUG ==========
-        console.log('%c🔥 THE TRADE ROOM | PIXEL ACTIVATED | UPDATED LINK 🔥', 'color: #FFB347; font-weight: bold; font-size: 15px;');
+        // ========== CONSOLE STATUS ==========
+        console.log('%c🔥 THE TRADE ROOM | PIXEL ACTIVATED | 2 BUTTONS 🔥', 'color: #FFB347; font-weight: bold; font-size: 15px;');
         console.log(`✅ Pixel ID: ${CONFIG.PIXEL_ID}`);
         console.log(`✅ Telegram Link: ${CONFIG.TELEGRAM_LINK}`);
-        console.log('✅ Total Tracked Buttons: 3 (Primary Join, Secondary Join, Subscribe Button)');
-        console.log('✅ All buttons use the updated Telegram link: https://t.me/+8gBJ8xN1YAs1ODY1');
-        console.log('✅ Events per click: Lead, Subscribe, CustomEvent (x2)');
+        console.log('✅ Total Tracked Buttons: 2 (Primary Join, Secondary Join)');
+        console.log('✅ Events per click: Lead, Subscribe, CompleteRegistration, Contact, CustomEvent, TradeRoomTelegramJoin, NewPixel258JoinEvent');
         console.log('✅ Additional tracking: ScrollDepth (25/50/75/100%), TimeOnPage, ButtonImpression, ViewContent');
-        console.log('✅ Standard events tracked: PageView, ViewContent, Lead, Subscribe, CustomEvent');
-        console.log('🎯 Subscribe Button tracking is fully integrated with "Subscribe" standard event.');
         
         // Helper debugging tools
         window.tradeRoomPixel = {
@@ -589,7 +581,7 @@
                 console.log(`  Pixel ID: ${CONFIG.PIXEL_ID}`);
                 console.log(`  Telegram Link: ${CONFIG.TELEGRAM_LINK}`);
                 console.log(`  Top Button exists: ${!!document.getElementById('joinBtnTop')}`);
-                console.log(`  Subscribe Button exists: ${!!document.getElementById('subscribeBtnSpecial')}`);
+                console.log(`  Bottom Button exists: ${!!document.getElementById('joinBtnBottom')}`);
             }
         };
         console.log('💡 Debug: type "tradeRoomPixel.status()" or "tradeRoomPixel.testEvent()" in console');
@@ -597,12 +589,12 @@
     })();
 </script>
 
-<!-- Fallback noscript images for additional event safety (pixel: 1280549257609882) -->
+<!-- Noscript fallback for Pixel (2583362105425845) -->
 <noscript>
-    <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1280549257609882&ev=Lead&noscript=1"/>
-    <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1280549257609882&ev=Subscribe&noscript=1"/>
-    <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1280549257609882&ev=CustomEvent&noscript=1"/>
-    <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1280549257609882&ev=ViewContent&noscript=1"/>
+    <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2583362105425845&ev=Lead&noscript=1"/>
+    <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2583362105425845&ev=Subscribe&noscript=1"/>
+    <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2583362105425845&ev=CustomEvent&noscript=1"/>
+    <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2583362105425845&ev=ViewContent&noscript=1"/>
 </noscript>
 
 </body>
