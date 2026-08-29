@@ -62,6 +62,9 @@
             text-decoration: none;
             margin: 25px 0;
             transition: .2s;
+            border: none;
+            cursor: pointer;
+            text-align: center;
         }
 
         .btn:hover {
@@ -140,81 +143,132 @@
             }
         }
     </style>
-    <!-- Meta Pixel Code -->
+    <!-- Meta Pixel Code (event tracking included) -->
     <script>
-        !function (f, b, e, v, n, t, s) {
-            if (f.fbq) return; n = f.fbq = function () {
-                n.callMethod ?
-                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-            };
-            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
-            n.queue = []; t = b.createElement(e); t.async = !0;
-            t.src = v; s = b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t, s)
-        }(window, document, 'script',
-            'https://connect.facebook.net/en_US/fbevents.js');
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
         fbq('init', '2593472241082980');
         fbq('track', 'PageView');
     </script>
     <noscript><img height="1" width="1" style="display:none"
-            src="https://www.facebook.com/tr?id=2593472241082980&ev=PageView&noscript=1" /></noscript>
+        src="https://www.facebook.com/tr?id=2593472241082980&ev=PageView&noscript=1"
+    /></noscript>
     <!-- End Meta Pixel Code -->
 </head>
 <body>
 
-    <div class="container">
+<div class="container">
 
-        <!-- अपनी फोटो का URL यहां डालें -->
-        <img class="profile"
+    <!-- Profile image -->
+    <img class="profile"
         src="https://cdn.phototourl.com/free/2026-08-17-a36c9572-e114-4d58-bdfc-41fb7c41266d.jpg"
         alt="Pooja">
 
-        <h1>THE TRADE ROOM</h1>
+    <h1>THE TRADE ROOM</h1>
 
-        <div class="subtitle">
-            Learn • Practice • Improve Trading Skills
-        </div>
-
-        <a href="https://t.me/+8gBJ8xN1YAs1ODY1" class="btn">
-            JOIN FREE LEARNING COMMUNITY
-        </a>
-
-        <div class="points">
-
-            <div class="point">
-                📊 NIFTY • BANKNIFTY • SENSEX Basics
-            </div>
-
-            <div class="point">
-                📘 Educational Content & Trading Concepts
-            </div>
-
-            <div class="point">
-                ⚠️ Risk Management & Awareness
-            </div>
-
-            <div class="point">
-                📢 Market Updates & Insights
-            </div>
-
-        </div>
-
-        <a href="https://t.me/+8gBJ8xN1YAs1ODY1" class="btn">
-            JOIN FREE LEARNING COMMUNITY
-        </a>
-
-        <div class="disclaimer">
-            Disclaimer: This content is for educational purposes only.
-            We do not provide investment advice or stock recommendations.
-            We are not SEBI registered. Stock market investments are
-            subject to market risks.
-        </div>
-
-        <div class="powered">
-            🔥 Powered by <span>KARAN AGENCY</span>
-        </div>
-
+    <div class="subtitle">
+        Learn • Practice • Improve Trading Skills
     </div>
+
+    <!-- Telegram Join Button with event tracking -->
+    <a href="https://t.me/+8gBJ8xN1YAs1ODY1" class="btn" id="joinTelegramBtn">
+        JOIN FREE LEARNING COMMUNITY
+    </a>
+
+    <div class="points">
+        <div class="point">📊 NIFTY • BANKNIFTY • SENSEX Basics</div>
+        <div class="point">📘 Educational Content & Trading Concepts</div>
+        <div class="point">⚠️ Risk Management & Awareness</div>
+        <div class="point">📢 Market Updates & Insights</div>
+    </div>
+
+    <!-- Second Telegram Join Button with event tracking -->
+    <a href="https://t.me/+8gBJ8xN1YAs1ODY1" class="btn" id="joinTelegramBtn2">
+        JOIN FREE LEARNING COMMUNITY
+    </a>
+
+    <div class="disclaimer">
+        Disclaimer: This content is for educational purposes only.
+        We do not provide investment advice or stock recommendations.
+        We are not SEBI registered. Stock market investments are
+        subject to market risks.
+    </div>
+
+    <div class="powered">
+        🔥 Powered by <span>KARAN AGENCY</span>
+    </div>
+
+</div>
+
+<!-- Event tracking for Telegram buttons -->
+<script>
+    (function() {
+        // Track clicks on both Telegram join buttons with fbq event
+        function trackTelegramClick(event) {
+            // Prevent default if needed, but we want the link to work
+            // so we just fire the pixel event and let the navigation happen.
+            // Using fbq if available
+            if (typeof fbq === 'function') {
+                fbq('track', 'JoinTelegram', {
+                    button: event.target.innerText.trim() || 'Telegram Join',
+                    location: window.location.href
+                });
+            } else {
+                console.log('fbq not available, but click tracked for Telegram');
+            }
+            // Optionally log or do nothing else; link will open
+        }
+
+        // Get both buttons by ID
+        const btn1 = document.getElementById('joinTelegramBtn');
+        const btn2 = document.getElementById('joinTelegramBtn2');
+
+        if (btn1) {
+            btn1.addEventListener('click', trackTelegramClick);
+        }
+        if (btn2) {
+            btn2.addEventListener('click', trackTelegramClick);
+        }
+
+        // Additional: track if any other element with class 'btn' that points to Telegram (just in case)
+        // but we already have two specific ones. For safety, also track generic .btn if href contains t.me
+        document.querySelectorAll('.btn').forEach(function(btn) {
+            // Avoid double-binding if already bound by id
+            if (btn.id === 'joinTelegramBtn' || btn.id === 'joinTelegramBtn2') return;
+            if (btn.href && btn.href.includes('t.me')) {
+                btn.addEventListener('click', function(e) {
+                    if (typeof fbq === 'function') {
+                        fbq('track', 'JoinTelegram', {
+                            button: e.target.innerText.trim() || 'Telegram Join (generic)',
+                            location: window.location.href
+                        });
+                    }
+                });
+            }
+        });
+
+        // Also track page view with custom event if needed (already tracked by Pixel init)
+        // but we can add custom event for "ViewContent" if desired.
+        if (typeof fbq === 'function') {
+            fbq('track', 'ViewContent', {
+                content_name: 'Trade Room Landing',
+                content_type: 'landing_page'
+            });
+        }
+    })();
+</script>
+
+<!-- Additional fallback tracking for noscript (just in case) -->
+<noscript>
+    <img height="1" width="1" style="display:none" 
+        src="https://www.facebook.com/tr?id=2593472241082980&ev=PageView&noscript=1" />
+</noscript>
 
 </body>
 </html>
