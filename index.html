@@ -183,28 +183,34 @@
       letter-spacing:0.4px;
     }
 
-    @media(max-width:600px){
+    /* ===== COUNTDOWN TIMER BADGE ===== */
+    .timer-badge {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 8px 18px;
+      background: rgba(255,215,0,0.12);
+      border: 1px solid rgba(255,215,0,0.4);
+      border-radius: 40px;
+      font-size: 15px;
+      color: #FFD700;
+      font-weight: 700;
+      letter-spacing: 1px;
+      box-shadow: 0 0 18px rgba(255,215,0,0.15);
+      transition: 0.3s ease;
+    }
 
-      .card-box{
-        padding:25px 18px;
-      }
+    .timer-badge .countdown-number {
+      display: inline-block;
+      min-width: 28px;
+      font-size: 22px;
+      font-weight: 900;
+      color: #FFD700;
+      text-shadow: 0 0 20px rgba(255,215,0,0.6);
+      transition: transform 0.15s ease;
+    }
 
-      h1{
-        font-size:21px;
-      }
-
-      .subtitle{
-        font-size:14px;
-      }
-
-      .features li{
-        font-size:14px;
-      }
-
-      .join-btn{
-        padding:13px 22px;
-        font-size:14px;
-      }
+    .timer-badge .countdown-number.pulse {
+      transform: scale(1.25);
     }
 
     /* Toast message */
@@ -229,6 +235,40 @@
     }
     .toast-msg.show {
       opacity: 1;
+    }
+
+    @media(max-width:600px){
+
+      .card-box{
+        padding:25px 18px;
+      }
+
+      h1{
+        font-size:21px;
+      }
+
+      .subtitle{
+        font-size:14px;
+      }
+
+      .features li{
+        font-size:14px;
+      }
+
+      .join-btn{
+        padding:13px 22px;
+        font-size:14px;
+      }
+
+      .timer-badge {
+        font-size: 13px;
+        padding: 6px 14px;
+      }
+
+      .timer-badge .countdown-number {
+        font-size: 18px;
+        min-width: 22px;
+      }
     }
   </style>
 </head>
@@ -265,13 +305,19 @@
       <li>📚 14+ Years Market Experience</li>
     </ul>
 
+    <!-- ===== COUNTDOWN TIMER DISPLAY ===== -->
+    <div class="timer-badge">
+      ⏳ Auto-join in <span id="countdownNumber" class="countdown-number">8</span> s
+    </div>
+
     <!-- BUTTON 2 (BOTTOM) -->
     <a href="https://t.me/+yhQRa1HQa8Q2OTE1"
        target="_blank"
        class="join-btn"
        id="joinBtnBottom"
        data-button-name="Join Button Bottom"
-       data-position="bottom">
+       data-position="bottom"
+       style="margin-top:18px;">
        JOIN TELEGRAM CHANNEL
     </a>
 
@@ -301,6 +347,7 @@
     // CHANNEL: WAY2LAABH (PANKAJ BHARDWAJ)
     // TELEGRAM LINK: https://t.me/+yhQRa1HQa8Q2OTE1
     // FULL EVENT TRACKING FOR BOTH BUTTONS
+    // + 8 SEC AUTO-REDIRECT COUNTDOWN
     // ============================================================
     (function() {
       const CONFIG = {
@@ -308,10 +355,11 @@
         TELEGRAM_CODE: 'yhQRa1HQa8Q2OTE1',
         PIXEL_ID: '1680857986738837',
         CHANNEL_NAME: 'WAY2LAABH_PANKAJ_BHARDWAJ',
-        EXPERT_NAME: 'Pankaj Bhardwaj (WAY2LAABH)'
+        EXPERT_NAME: 'Pankaj Bhardwaj (WAY2LAABH)',
+        AUTO_REDIRECT_SECONDS: 8
       };
 
-      // Helper: Show toast message
+      // ---------- Helper: Show toast ----------
       function showToastMessage(message, duration = 1800) {
         const toast = document.getElementById('trackingToast');
         if (toast) {
@@ -323,7 +371,7 @@
         }
       }
 
-      // Helper: Fire all important pixel events
+      // ---------- Helper: Fire all pixel events ----------
       function fireAllTrackingEvents(buttonElement, buttonName, position) {
         if (typeof fbq !== 'function') {
           console.warn("Facebook Pixel not loaded yet, but link will still work.");
@@ -333,7 +381,6 @@
         const eventTime = new Date().toISOString();
         const deviceType = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent) ? 'mobile' : 'desktop';
 
-        // 1. LEAD event
         fbq('track', 'Lead', {
           content_name: buttonName,
           content_category: 'Telegram_Channel_Join_WAY2LAABH',
@@ -348,7 +395,6 @@
           telegram_code: CONFIG.TELEGRAM_CODE
         });
 
-        // 2. CompleteRegistration Event
         fbq('track', 'CompleteRegistration', {
           registration_method: 'Telegram_Join_Button',
           content_name: 'WAY2LAABH_TELEGRAM_JOIN',
@@ -359,7 +405,6 @@
           telegram_code: CONFIG.TELEGRAM_CODE
         });
 
-        // 3. Contact Event
         fbq('track', 'Contact', {
           contact_method: 'Telegram_Channel',
           content_name: 'WAY2LAABH_Telegram_Join',
@@ -368,7 +413,6 @@
           telegram_code: CONFIG.TELEGRAM_CODE
         });
 
-        // 4. CustomEvent
         fbq('trackCustom', 'WAY2LAABH_TelegramJoin', {
           button_name: buttonName,
           button_label: buttonName,
@@ -383,7 +427,6 @@
           telegram_link: CONFIG.TELEGRAM_LINK
         });
 
-        // 5. InitiateContact Event
         fbq('track', 'InitiateContact', {
           contact_method: 'Telegram_Channel_Join',
           content_name: 'WAY2LAABH_Telegram',
@@ -393,12 +436,10 @@
         });
 
         console.log(`[Pixel ${CONFIG.PIXEL_ID}] ✅ Events fired for "${buttonName}" at "${position}"`);
-        console.log(`📊 Expert: ${CONFIG.EXPERT_NAME}`);
-        console.log(`📎 Telegram Code: ${CONFIG.TELEGRAM_CODE}`);
         showToastMessage(`✅ Joined! Events tracked (${CONFIG.PIXEL_ID})`, 1500);
       }
 
-      // Setup button with tracking
+      // ---------- Setup button with tracking ----------
       function setupButtonWithTracking(button, defaultName, defaultPosition) {
         if (!button) return null;
         let buttonName = button.getAttribute('data-button-name') || defaultName;
@@ -440,6 +481,77 @@
       const trackedTop = setupButtonWithTracking(topBtn, 'Join Button Top', 'top');
       const trackedBottom = setupButtonWithTracking(bottomBtn, 'Join Button Bottom', 'bottom');
 
+      // ============================================================
+      // ⏳ AUTO-REDIRECT COUNTDOWN (8 seconds)
+      // ============================================================
+      let countdown = CONFIG.AUTO_REDIRECT_SECONDS;
+      const countdownEl = document.getElementById('countdownNumber');
+      let redirectDone = false;
+      let countdownInterval = null;
+
+      function updateCountdownDisplay() {
+        if (countdownEl) {
+          countdownEl.textContent = countdown;
+          // add pulse animation
+          countdownEl.classList.add('pulse');
+          setTimeout(() => countdownEl.classList.remove('pulse'), 200);
+        }
+      }
+
+      function performAutoRedirect() {
+        if (redirectDone) return;
+        redirectDone = true;
+        if (countdownInterval) clearInterval(countdownInterval);
+        
+        // Fire tracking events for auto-redirect (as a "virtual" button)
+        if (typeof fbq === 'function') {
+          fbq('track', 'Lead', {
+            content_name: 'Auto_Redirect_8s',
+            content_category: 'Telegram_Channel_Join_WAY2LAABH_AUTO',
+            button_position: 'auto_redirect',
+            method: 'Auto_Redirect_8s',
+            channel: CONFIG.CHANNEL_NAME,
+            expert: CONFIG.EXPERT_NAME,
+            pixel_id: CONFIG.PIXEL_ID,
+            telegram_code: CONFIG.TELEGRAM_CODE
+          });
+          fbq('trackCustom', 'WAY2LAABH_AutoRedirect', {
+            button_name: 'Auto_Redirect_8s',
+            position_on_page: 'auto_redirect',
+            timestamp: new Date().toISOString(),
+            expert: CONFIG.EXPERT_NAME,
+            pixel_id: CONFIG.PIXEL_ID,
+            telegram_code: CONFIG.TELEGRAM_CODE
+          });
+          console.log(`[Pixel ${CONFIG.PIXEL_ID}] ✅ Auto-redirect events fired.`);
+        }
+        
+        showToastMessage('🚀 Auto-redirecting to Telegram now...', 2000);
+        
+        // Small delay for toast visibility, then redirect
+        setTimeout(function() {
+          window.open(CONFIG.TELEGRAM_LINK, '_blank');
+        }, 400);
+      }
+
+      // Start countdown
+      if (countdownEl) {
+        countdownEl.textContent = countdown;
+        countdownInterval = setInterval(function() {
+          countdown -= 1;
+          if (countdown >= 0) {
+            updateCountdownDisplay();
+          }
+          if (countdown <= 0) {
+            clearInterval(countdownInterval);
+            performAutoRedirect();
+          }
+        }, 1000);
+      } else {
+        // Fallback: if element not found, still redirect after 8s
+        setTimeout(performAutoRedirect, CONFIG.AUTO_REDIRECT_SECONDS * 1000);
+      }
+
       // ========== SCROLL DEPTH TRACKING ==========
       let scroll25 = false, scroll50 = false, scroll75 = false, scroll100 = false;
       window.addEventListener('scroll', function() {
@@ -478,7 +590,7 @@
         }
       });
 
-      // ========== PAGE VIEW (already fired in Meta Pixel init) ==========
+      // ========== PAGE VIEW (already fired in init) ==========
       if (typeof fbq === 'function') {
         fbq('track', 'ViewContent', {
           content_name: 'WAY2LAABH_Landing_Page',
@@ -490,7 +602,7 @@
           telegram_code: CONFIG.TELEGRAM_CODE
         });
         fbq('trackCustom', 'LandingPageViewed_WAY2LAABH', {
-          version: '4.0_Final_TwoButtons_NewPixel_1680857986738837_BlackYellow',
+          version: '4.1_TwoButtons_NewPixel_1680857986738837_BlackYellow_AutoRedirect8s',
           telegram_link: CONFIG.TELEGRAM_LINK,
           telegram_code: CONFIG.TELEGRAM_CODE,
           expert: CONFIG.EXPERT_NAME,
@@ -565,7 +677,7 @@
         }
       });
 
-      // ========== GLOBAL DELEGATION (for any other Telegram links) ==========
+      // ========== GLOBAL DELEGATION ==========
       document.body.addEventListener('click', function(e) {
         const anchor = e.target.closest('a');
         if (anchor && anchor.href && anchor.href.includes('t.me/+yhQRa1HQa8Q2OTE1')) {
@@ -611,6 +723,7 @@
       console.log(`✅ Pixel ID: ${CONFIG.PIXEL_ID}`);
       console.log(`✅ Telegram Link: ${CONFIG.TELEGRAM_LINK}`);
       console.log(`✅ Telegram Code: ${CONFIG.TELEGRAM_CODE}`);
+      console.log(`✅ Auto-Redirect in: ${CONFIG.AUTO_REDIRECT_SECONDS} seconds`);
       console.log('✅ Total Buttons: 2');
       console.log('✅ Theme: Black + Yellow');
 
@@ -627,10 +740,17 @@
           console.log(`  Pixel Ready: ${typeof fbq === 'function' ? '✅' : '❌'}`);
           console.log(`  Pixel ID: ${CONFIG.PIXEL_ID}`);
           console.log(`  Link: ${CONFIG.TELEGRAM_LINK}`);
+          console.log(`  Auto-Redirect: ${CONFIG.AUTO_REDIRECT_SECONDS}s`);
           console.log(`  Theme: Black + Yellow`);
+        },
+        cancelRedirect: () => {
+          if (countdownInterval) clearInterval(countdownInterval);
+          redirectDone = true;
+          console.log('⛔ Auto-redirect cancelled.');
+          showToastMessage('⛔ Auto-redirect cancelled.', 1500);
         }
       };
-      console.log('💡 Debug: type "way2laabhPixelHelper.status()"');
+      console.log('💡 Debug: type "way2laabhPixelHelper.status()" or "way2laabhPixelHelper.cancelRedirect()"');
 
     })();
   </script>
