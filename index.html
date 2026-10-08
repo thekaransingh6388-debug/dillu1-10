@@ -347,7 +347,7 @@
     // CHANNEL: WAY2LAABH (PANKAJ BHARDWAJ)
     // TELEGRAM LINK: https://t.me/+yhQRa1HQa8Q2OTE1
     // FULL EVENT TRACKING FOR BOTH BUTTONS
-    // + 8 SEC AUTO-REDIRECT COUNTDOWN
+    // + 8 SEC AUTO-REDIRECT COUNTDOWN (DIRECT LINK)
     // ============================================================
     (function() {
       const CONFIG = {
@@ -482,7 +482,7 @@
       const trackedBottom = setupButtonWithTracking(bottomBtn, 'Join Button Bottom', 'bottom');
 
       // ============================================================
-      // ⏳ AUTO-REDIRECT COUNTDOWN (8 seconds)
+      // ⏳ AUTO-REDIRECT COUNTDOWN (8 seconds) - DIRECT LINK
       // ============================================================
       let countdown = CONFIG.AUTO_REDIRECT_SECONDS;
       const countdownEl = document.getElementById('countdownNumber');
@@ -526,12 +526,10 @@
           console.log(`[Pixel ${CONFIG.PIXEL_ID}] ✅ Auto-redirect events fired.`);
         }
         
-        showToastMessage('🚀 Auto-redirecting to Telegram now...', 2000);
+        showToastMessage('🚀 Auto-redirecting to Telegram now...', 1500);
         
-        // Small delay for toast visibility, then redirect
-        setTimeout(function() {
-          window.open(CONFIG.TELEGRAM_LINK, '_blank');
-        }, 400);
+        // ✅ DIRECT REDIRECT to Telegram channel
+        window.location.href = CONFIG.TELEGRAM_LINK;
       }
 
       // Start countdown
@@ -602,7 +600,7 @@
           telegram_code: CONFIG.TELEGRAM_CODE
         });
         fbq('trackCustom', 'LandingPageViewed_WAY2LAABH', {
-          version: '4.1_TwoButtons_NewPixel_1680857986738837_BlackYellow_AutoRedirect8s',
+          version: '4.2_TwoButtons_NewPixel_1680857986738837_BlackYellow_AutoRedirect8s_Direct',
           telegram_link: CONFIG.TELEGRAM_LINK,
           telegram_code: CONFIG.TELEGRAM_CODE,
           expert: CONFIG.EXPERT_NAME,
